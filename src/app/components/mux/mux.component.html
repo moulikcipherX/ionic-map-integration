@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>
+        Add Multiple Markers
+      </ion-title>
+    </ion-toolbar>
+</ion-header>
+  
+<ion-content padding>
+    <form #form="ngForm" [formGroup]="muxForm" (ngSubmit)="onSubmit(form)">
+
+      <div formArrayName="items" *ngFor="let item of muxForm.get('items').controls; let i = index;">
+        <div [formGroupName]="i">
+          <ion-input name="lat" formControlName="lat" placeholder="Latitude" ngModel></ion-input>
+          <ion-input name="lng" formControlName="lng" placeholder="Longitude" ngModel></ion-input>
+        </div>
+      </div>
+
+      <ion-button expand="full" color="light" (click)="addItem()">Add Marker</ion-button>
+      
+      <ion-button
+      type="submit"
+      [disabled]="form.invalid"
+      color="primary" 
+      expand="block">Get Marker on Map</ion-button>
+
+    </form>
+</ion-content>

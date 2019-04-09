@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+
+import { NewPagePage } from './new-page.page';
 import { AgmCoreModule } from '@agm/core';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: NewPagePage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ]),
+    RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBb_e0BHZAicFfdv4Jre3pYSJ9dlZeJDro'
     })
   ],
-  declarations: [HomePage]
+  declarations: [NewPagePage]
 })
-export class HomePageModule {}
+export class NewPagePageModule {}

@@ -1,0 +1,29 @@
+<ion-header>
+
+    <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Marker Location</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ng-template [ngIf]="mulX"> -->
+  <div *ngIf="mulX; then content else elseblock"></div>
+
+  <ng-template #content>
+
+    <agm-map id="thenblock" [latitude] = "_lat" [longitude] = "_lng" [fitBounds]="true">
+        <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [agmFitBounds]="true"></agm-marker>
+    </agm-map>
+        
+  </ng-template>
+  
+  <ng-template #elseblock>
+
+      <agm-map id="elseblock" [latitude] = "_lat" [longitude] = "_lng" [usePanning]='true'>    
+          <agm-marker [latitude] = "_lat" [longitude] = "_lng"></agm-marker>
+        </agm-map>
+
+  </ng-template>
+

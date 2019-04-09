@@ -9,10 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { PopoverComponent } from './popover/popover.component';
+import { InputLocationComponent } from './input-location/input-location.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MuxComponent } from './components/mux/mux.component';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent, PopoverComponent, InputLocationComponent, MuxComponent],
+  entryComponents: [PopoverComponent, InputLocationComponent, MuxComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,

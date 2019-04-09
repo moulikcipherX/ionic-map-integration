@@ -1,12 +1,25 @@
 <ion-header>
+  
   <ion-toolbar>
     <ion-title>
       Ionic Blank
     </ion-title>
+
+    <ion-button size="small" shape="round" color="medium" (click)="presentPopover()">
+        Menu
+        <ion-icon color="dark" slot="end" name="star"></ion-icon>
+    </ion-button>
   </ion-toolbar>
+
+  <!-- <ion-toolbar>
+    <ion-button size="small" shape="round" color="medium" (click)="presentPopover()">
+      Menu
+      <ion-icon color="dark" slot="end" name="star"></ion-icon>
+    </ion-button>
+  </ion-toolbar> -->
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-</ion-content>
+<agm-map [latitude] = "_lat" [longitude] = "_lng" [usePanning]='true'>
+  <agm-marker [latitude] = "_lat" [longitude] = "_lng"></agm-marker>
+</agm-map>
